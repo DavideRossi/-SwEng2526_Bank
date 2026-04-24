@@ -107,7 +107,7 @@ public class Account {
 		return String.format("{Account id: %d, owner: %s, balance: %f}", this.id, this.owner, this.balance);
 	}
 
-	//transfer from a local account to a remote one
+	// Transfer from a local account to a remote one
 	public boolean makeTransfer(String destinationAccountCode, double amount) {
 		EmailNotificator notificator = new EmailNotificator();
 		SETRemoteBankOperator remoteBankOperator = new SETRemoteBankOperator();
