@@ -109,8 +109,10 @@ public class Account {
 
 	// Transfer from a local account to a remote one
 	public boolean makeTransfer(String destinationAccountCode, double amount) {
-		EmailNotificator notificator = new EmailNotificator();
-		SETRemoteBankOperator remoteBankOperator = new SETRemoteBankOperator();
+		NotificatorFactory notificatorFactory = new NotificatorFactory();
+		Notificator notificator = notificatorFactory.create();
+		RemoteBankOperatorFactory bankOperatorFactory = new RemoteBankOperatorFactory();
+		RemoteBankOperator remoteBankOperator = bankOperatorFactory.create();
 
 		if(getBalance() >= amount) {
 			if(remoteBankOperator.transfer(destinationAccountCode, amount)) {
